@@ -1,0 +1,42 @@
+.am-article:not([am-version]) {
+  margin: 0px 0.15rem;
+  font-size: 0.13rem;
+  line-height: 1.5;
+  padding: 0.2rem 0;
+  color: #000;
+}
+.am-article:not([am-version]) .am-article-footer {
+  margin-top: -0.08rem;
+}
+.am-article:not([am-version]) h2 {
+  font-size: 0.2rem;
+  font-weight: 900;
+  color: #000;
+  line-height: 100%;
+}
+.am-article:not([am-version]) time {
+  display: block;
+  margin: 0.05rem 0 0.15rem 0;
+  font-size: 0.12rem;
+  color: #999999;
+}
+.am-article:not([am-version]) dl {
+  margin: 0 0 0.2rem 0;
+}
+.am-article:not([am-version]) dl dt {
+  font-size: 0.14rem;
+  font-weight: 900;
+  color: #000;
+  margin-bottom: 0.03rem;
+}
+.am-article:not([am-version]) dl dd {
+  color: #000;
+  line-height: 0.2rem;
+}
+.am-article:not([am-version]) p {
+  padding-bottom: 0.17rem;
+}
+.am-article:not([am-version]) img {
+  max-width: 100%;
+  vertical-align: bottom;
+}

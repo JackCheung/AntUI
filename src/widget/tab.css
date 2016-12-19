@@ -1,0 +1,40 @@
+/*Tab选项卡*/
+.am-tab:not([am-version]) {
+  display: -webkit-box;
+  display: -webkit-flex;
+  background-color: #fff;
+  height: 0.42rem;
+}
+.am-tab:not([am-version]) button {
+  padding: 0;
+  border: 0 none;
+  outline: 0 none;
+  background: transparent;
+  -webkit-appearance: none;
+}
+.am-tab:not([am-version]) .am-tab-item {
+  position: relative;
+  display: block;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  width: 100%;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#ddd)) bottom left no-repeat;
+  background: -webkit-linear-gradient(270deg, #ddd, #ddd, rgba(229, 229, 229, 0)) bottom left no-repeat;
+  background: linear-gradient(180deg, #ddd, #ddd, rgba(229, 229, 229, 0)) bottom left no-repeat;
+  -webkit-background-size: 100% 0.01rem;
+  font-size: 0.15rem;
+  text-align: center;
+  line-height: 0.42rem;
+  color: #000;
+}
+.am-tab:not([am-version]) .am-tab-item.hover,
+.am-tab:not([am-version]) .am-tab-item:active {
+  background-color: #DDDDDD;
+}
+.am-tab:not([am-version]) .am-tab-item.selected {
+  background: none;
+  color: #108ee9;
+  border-bottom: 0.02rem solid #108ee9;
+}

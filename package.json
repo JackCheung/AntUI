@@ -1,0 +1,33 @@
+{
+  "name": "@alipay/amui",
+  "version": "10.0.0",
+  "description": "AntMobileUI，支付宝无线端通用样式库",
+  "keywords": ["ui", "amui", "antui"],
+  "homepage": "http://gitlab.alipay-inc.com/h5-lib/antui",
+  "author": "vivian.zhangyi@alibaba-inc.com",
+  "maintainers": [
+    "leijun.wulj@alibaba-inc.com",
+    "weiesky.wangc@alibaba-inc.com",
+    "wanyan.wz@taobao.com",
+    "vivian.zhangyi@alibaba-inc.com"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.alipay-inc.com/h5-lib/antui"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "spm": {
+    "main": "amui.css",
+    "dependencies": {},
+    "output": [
+      "**/*.css"
+    ]
+  },
+  "licenses": "MIT",
+  "devDependencies": {},
+  "publishConfig": {
+    "registry": "http://registry.npm.alibaba-inc.com"
+   }
+}

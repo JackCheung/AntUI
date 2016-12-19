@@ -1,0 +1,2895 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+	<title>AntUI</title>
+	<meta charset="utf-8">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+
+	<link rel="stylesheet" type="text/css" href="../dist/antui.min.css" media="all">
+
+	<link rel="stylesheet" href="https://as.alipayobjects.com/g/component/swiper/3.2.7/swiper.min.css" />
+</head>
+<body ontouchstart="">
+<style>
+html{height: 100%;}
+body{height:100%;overflow-x: hidden;}
+.widget-list-panel{
+	position: relative;
+	background: -webkit-linear-gradient(-120deg, #2288CD, #1471B2) top right no-repeat;
+	-webkit-background-size:100%;
+	height: 100%;
+}
+.widget-list-panel .header{
+	position:relative;
+	padding-bottom: 32px;
+	color: #fff;
+	text-align: center;
+	z-index: 1;
+}
+.widget-list-panel h1{
+	font-size: 40px;
+	line-height: 48px;
+	font-weight: 300;
+	padding-top: 32px;
+}
+.widget-list-panel .header-info{
+	font-size: 17px;
+	line-height: 21px;
+	padding-top: 6px;
+}
+.x-bg{
+	position: absolute;
+	width: 50%;
+	min-width: 325px;
+	height: 100%;
+	right: 0;
+	top: 0;
+	background: url('https://os.alipayobjects.com/rmsportal/ZbQiBgorAUacvlC.png') no-repeat right top;
+	background-size: 100% auto;
+	z-index: 1;
+}
+
+.widget-list{
+	padding: 0px 15px 15px 0;
+	list-style: none;
+	display:table;
+	table-layout: fixed;
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+.widget-list .widget-item {
+	display: inline-block;
+	list-style: none;
+	width: 50%;
+	padding: 15px 0 0 15px;
+	box-sizing: border-box;
+	text-align: center;
+}
+.widget-list .widget-wrap{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.8);
+	border-radius: 3px;
+	padding: 23px 15px 20px;
+	box-sizing: border-box;
+}
+.widget-list .widget-wrap:active{
+	background: rgba(238, 238, 238, 0.85);
+	border-radius: 3px;
+}
+.widget-list .icon{
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	background: url('https://os.alipayobjects.com/rmsportal/ErzQirFUtUPzGTm.png') no-repeat center;
+	background-size: 32px auto;
+}
+.widget-list .icon.button{
+	background-position: -1px -1px;
+}
+
+.widget-list .icon.list {
+	background-position: -1px -65px;
+}
+.widget-list .icon.message {
+	background-position: -1px -97px;
+}
+.widget-list .icon.notice {
+	background-position: -1px -129px;
+}
+
+.widget-list .icon.popmenu {
+	background-position: -1px -193px;
+}
+.widget-list .icon.process {
+	background-position: -1px -225px;
+}
+
+.widget-list .icon.search {
+	background-position: -1px -289px;
+}
+
+.widget-list .icon.tab {
+	background-position: -1px -321px;
+}
+
+.widget-list .icon.dialog {
+	background-position: -1px -33px;
+}
+
+.widget-list .icon.loading {
+	background-position: -1px -256px;
+}
+
+.widget-list .icon.page-result {
+	background-position: -1px -160px;
+}
+
+.widget-list .name{
+	font-size: 15px;
+	color: #000;
+	margin: 9px 0 4px;
+	line-height: 17px;
+	font-weight: 300;
+}
+.widget-list .info{
+	font-size: 12px;
+	color: #888;
+}
+.widget-demo-show-panel{
+	background: #f5f5f9;
+}
+
+.demo .am-button, .demo .am-tab, .demo .am-message, .demo .am-notice, .demo .am-inform{
+	margin-bottom: 21px;
+}
+
+.demo .am-message.multi,
+.demo .am-button-wrap .am-button,
+.demo .am-button-group .am-button,
+.demo .am-button.bottom:last-child{
+	margin-bottom: 0;
+}
+.demo .am-button.bottom{
+	position: relative;
+}
+
+.demo .demo-content{
+	padding-bottom: 60px;
+}
+
+.demo.demo-button .demo-content:last-child,
+.demo.demo-loading .demo-content{
+	padding-bottom: 0;
+}
+
+.demo-dialog .demo-content{
+	min-height: 450px;
+	background: rgba(1,1,1,0.35);
+	position: relative;
+}
+.demo-toast .demo-content{
+	min-height: 300px;
+	position: relative;
+}
+.demo-toast .am-toast{
+	position: absolute;
+}
+.demo-page-result .demo-content{
+	min-height: 300px;
+}
+.demo-header{
+	text-align: center;
+	font-size: 30px;
+	padding-top: 32px;
+	color: #108ee9;
+}
+.demo-header-brief{
+	text-align: center;
+	color: #888;
+	font-size: 18px;
+	padding-bottom: 32px;
+	font-weight: 300;
+}
+.demo-search .demo-type-title{
+	font-weight: 300;
+}
+.demo-search .demo-type-title,
+.demo-notice .demo-type-title{
+	color: #888;
+	font-size: 13px;
+	padding: 60px 15px 9px;
+	display: inline-block;
+	width: 100%;
+	box-sizing: border-box;
+}
+.demo-popmenu .demo-type-title,
+.demo-dialog .demo-type-title,
+.demo-page-result .demo-type-title,
+.demo-toast .demo-type-title,
+.demo-loading .demo-type-title{
+	margin-top: 50px;
+	font-size: 15px;
+	padding: 11px 15px;
+	background-color: #3a3a3a;
+	color: #fff;
+	text-align: center;
+	position: relative;
+}
+.demo-loading .demo-type-title{
+	margin-top: 0;
+}
+.demo-popmenu .demo-type-title i.dot{
+	position: absolute;
+	right: 15px;
+	top: 0px;
+	font-size: 24px;
+	line-height: 30px;
+}
+.demo-popmenu .demo-content{
+	position: relative;
+	min-height: 160px;
+}
+.demo-popmenu .am-popmenu-mask{
+	position: absolute;
+}
+
+.swiper-slide{
+	height: auto;
+	position: static;
+	display: block;
+
+}
+
+@media only screen and (min-width: 800px) {
+	.widget-list .widget-item{
+		width: 33%;
+	}
+}
+</style>
+
+<div class="widget-list-panel" style="display: block;">
+
+	<div class="light-bg"></div>
+	<div class="x-bg"></div>
+
+	<div class="swiper-container swiper-container-vertical swiper-container-free-mode" style="position:absolute;top:0; width: 100%;">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide swiper-slide-active">
+				<!--<div style="height: 140px;"></div>-->
+				<div class="header">
+					<h1>AntUI</h1>
+					<div class="header-info">支付宝无线 UI规范库</div>
+				</div>
+
+				<div class="widget-list ">
+					<div class="widget-item">
+						<a class="widget-wrap" href="#search">
+							<i class="icon search"></i>
+							<div class="name">搜索栏</div>
+							<div class="info">Search Bars</div>
+						</a>
+					</div>
+					<div class="widget-item">
+						<a class="widget-wrap" href="#tab">
+							<i class="icon tab"></i>
+							<div class="name">标签栏</div>
+							<div class="info">Tab Bars</div>
+						</a>
+					</div>
+
+					<div class="widget-item">
+						<a class="widget-wrap" href="#button">
+							<i class="icon button"></i>
+							<div class="name">按钮</div>
+							<div class="info">Button</div>
+						</a>
+					</div>
+
+					<div class="widget-item">
+						<a class="widget-wrap" href="#list">
+							<i class="icon list"></i>
+							<div class="name">列表 & 表单</div>
+							<div class="info">List</div>
+						</a>
+					</div>
+
+					<div class="widget-item">
+						<a class="widget-wrap" href="#message">
+							<i class="icon message"></i>
+							<div class="name">提示</div>
+							<div class="info">Message</div>
+						</a>
+					</div>
+
+					<div class="widget-item">
+						<a class="widget-wrap" href="#process">
+							<i class="icon process"></i>
+							<div class="name">支付进度</div>
+							<div class="info">Process</div>
+						</a>
+					</div>
+
+					<div class="widget-item">
+						<a class="widget-wrap" href="#notice">
+							<i class="icon notice"></i>
+							<div class="name">公告</div>
+							<div class="info">Notice</div>
+						</a>
+					</div>
+
+
+					<div class="widget-item">
+						<a class="widget-wrap" href="#popmenu">
+							<i class="icon popmenu"></i>
+							<div class="name">浮出菜单</div>
+							<div class="info">Pop Menu</div>
+						</a>
+					</div>
+
+					<div class="widget-item">
+						<a class="widget-wrap" href="#card">
+							<i class="icon list"></i>
+							<div class="name">卡片</div>
+							<div class="info">Card</div>
+						</a>
+					</div>
+
+					<div class="widget-item">
+						<a class="widget-wrap" href="#article">
+							<i class="icon list"></i>
+							<div class="name">常规文章</div>
+							<div class="info">Article</div>
+						</a>
+					</div>
+
+
+					<div class="widget-item">
+						<a class="widget-wrap" href="#dialog">
+							<i class="icon dialog"></i>
+							<div class="name">对话框</div>
+							<div class="info">Dialog</div>
+						</a>
+					</div>
+
+					<div class="widget-item">
+						<a class="widget-wrap" href="#page-result">
+							<i class="icon page-result"></i>
+							<div class="name">结果页面</div>
+							<div class="info">Page Result</div>
+						</a>
+					</div>
+
+					<!--<div class="widget-item">-->
+					<!--<a class="widget-wrap" href="#city-select">-->
+					<!--<i class="icon city-select"></i>-->
+					<!--<div class="name">城市选择</div>-->
+					<!--<div class="info">City Select</div>-->
+					<!--</a>-->
+					<!--</div>-->
+
+					<!--<div class="widget-item">-->
+					<!--<a class="widget-wrap" href="#agreement">-->
+					<!--<i class="icon agreement"></i>-->
+					<!--<div class="name">协议</div>-->
+					<!--<div class="info">Agreement</div>-->
+					<!--</a>-->
+					<!--</div>-->
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="swiper-scrollbar"></div>
+
+</div>
+
+<div class="widget-demo-show-panel"></div>
+
+
+<script type="text/html" id="tpl-button">
+	<div class="demo demo-button">
+		<div class="demo-header">按钮</div>
+		<div class="demo-header-brief">Button</div>
+
+		<div class="demo-content" style="margin: 0 15px 60px;">
+			<button type="button" class="am-button blue">主按钮</button>
+			<button type="button" class="am-button white">次按钮</button>
+			<!--<a class="am-button disabled">主按钮不可点</a>-->
+			<button type="button" disabled="disabled" class="am-button disabled blue">主/次按钮不可点</button>
+
+			<a class="am-button tiny">辅助按钮</a>
+		</div>
+
+		<div class="demo-content" style="margin: 0 15px 60px;">
+			<!--<div class="demo-type-title">加载型按钮</div>-->
+			<!--<div class="demo-type-title">成功型按钮</div>-->
+			<a class="am-button blue loading"><i class="icon"></i>加载中...</a>
+			<a class="am-button blue success"><i class="icon"></i>付款成功</a>
+		</div>
+
+		<div class="demo-content">
+			<a class="am-button warn">警示按钮</a>
+			<button type="button" disabled="disabled" class="am-button disabled warn">警示按钮不可点</button>
+		</div>
+
+
+		<div class="demo-content">
+			<!--<div class="demo-type-title">组合按钮</div>-->
+			<div class="am-button-group">
+				<button type="button" class="am-button white">次按钮</button>
+				<button type="button" class="am-button blue">主按钮</button>
+			</div>
+		</div>
+
+		<div class="demo-content">
+			<div class="am-button-wrap">
+				<a class="am-button blue">主按钮</a>
+			</div>
+		</div>
+
+
+		<div class="demo-content">
+			<!--<div class="demo-type-title">底部按钮</div>-->
+			<button class="am-button bottom">底部信息跟随按钮</button>
+			<a class="am-button bottom">
+				<span class="am-bottom-button-add">+</span>
+				<span>新增</span>
+			</a>
+		</div>
+	</div>
+</script>
+
+<script type="text/html" id="tpl-list">
+<div class="demo demo-list">
+<div class="demo-header">列表 & 表单</div>
+<div class="demo-header-brief">List</div>
+
+<div class="demo-content">
+	<!--<div class="demo-type-title">单行表头纯文字</div>-->
+	<div class="am-list">
+		<div class="am-list-header">单行表头纯文字</div>
+		<div class="am-list-body">
+			<a class="am-list-item">
+				<div class="am-list-content">标签文本</div>
+				<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+			</a>
+		</div>
+	</div>
+
+	<div class="am-list">
+		<label class="am-list-item radio" for="r1">
+			<div class="am-list-content">选中标签</div>
+			<div class="am-checkbox">
+				<input type="radio" name="r1" checked id="r1">
+				<span class="icon-check"></span>
+			</div>
+		</label>
+	</div>
+
+	<div class="am-list">
+		<a href="#" class="am-list-item">
+			<div class="am-list-content">标签文本<i class="reddot"></i></div>
+			<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+		</a>
+	</div>
+
+	<div class="am-list">
+		<a href="#" class="am-list-item">
+			<div class="am-list-content">标签文本</div>
+			<span class="am-bubble two-num">24</span>
+			<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+		</a>
+	</div>
+
+	<div class="am-list">
+		<div class="am-list-body">
+			<div class="am-list-item">
+				<div class="am-list-content">选中状态</div>
+				<div class="am-switch">
+					<input type="checkbox" name="s1" class="am-switch-checkbox" checked="checked">
+					<label class="am-switch-label">
+						<div class="am-switch-inner"></div>
+						<div class="am-switch-switch"></div>
+					</label>
+				</div>
+			</div>
+			<div class="am-list-item">
+				<div class="am-list-content">未选中状态</div>
+				<div class="am-switch">
+					<input type="checkbox" name="s2" class="am-switch-checkbox">
+					<label class="am-switch-label">
+						<div class="am-switch-inner"></div>
+						<div class="am-switch-switch"></div>
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="am-list-footer">辅助说明文案</div>
+	</div>
+</div>
+
+<div class="demo-content">
+	<!--<div class="demo-type-title">两行表头纯文字</div>-->
+	<div class="am-list">
+		<div class="am-list-header">两行表头纯文字</div>
+		<div class="am-list-body">
+
+			<div class="am-list-item">
+				<div class="am-list-content">标签文本</div>
+			</div>
+
+			<div class="am-list-item">
+				<div class="am-list-content">标签文本</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="am-list">
+		<a class="am-list-item">
+			<div class="am-list-content">标签文本</div>
+			<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+		</a>
+		<a class="am-list-item">
+			<div class="am-list-content">标签文本</div>
+			<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+		</a>
+	</div>
+
+	<div class="am-list">
+		<a class="am-list-item">
+			<div class="am-list-content">标签文本</div>
+			<div class="am-list-extra">辅助标签</div>
+			<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+		</a>
+		<a class="am-list-item">
+			<div class="am-list-content">标签文本</div>
+			<div class="am-list-extra">辅助标签三四五六七八九十</div>
+			<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+		</a>
+	</div>
+
+	<div class="am-list twoline">
+		<a class="am-list-item">
+			<div class="am-list-content">
+				<div class="am-list-title">标签文本标签文本标签文本标签文本标签文本标签文本标签文本</div>
+				<div class="am-list-brief">辅助标签辅助标签辅助标签辅助标签辅助标签辅助标签辅助标签</div>
+			</div>
+			<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+		</a>
+	</div>
+
+	<div class="am-list twoline">
+		<div class="am-list-body">
+			<a class="am-list-item">
+				<div class="am-list-content">
+					<div class="am-list-title">标签文本</div>
+					<div class="am-list-brief">辅助标签</div>
+				</div>
+				<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+			</a>
+			<a class="am-list-item">
+				<div class="am-list-content">
+					<div class="am-list-title">标签文本</div>
+					<div class="am-list-brief">辅助标签</div>
+				</div>
+				<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+			</a>
+
+		</div>
+		<div class="am-list-footer">辅助说明文案辅助说明 <a>文案辅助说</a> 明文案辅助说明文案文案辅助说明辅助说明文案。</div>
+	</div>
+</div>
+
+<div class="demo-content">
+	<!--<div class="demo-type-title">图标＋单行文字</div>-->
+	<div class="am-list sicon">
+		<div class="am-list-header">图标＋单行文字（icon尺寸：21px * 21px）</div>
+		<div class="am-list-body ">
+			<div class="am-list-item">
+				<div class="am-list-thumb"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+				<div class="am-list-content">标签文本</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="am-list sicon">
+		<a class="am-list-item">
+			<div class="am-list-thumb"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+			<div class="am-list-content">标签文本</div>
+			<div class="am-list-extra">辅助标签</div>
+			<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+		</a>
+	</div>
+
+	<div class="am-list sicon">
+		<div class="am-list-body ">
+			<a class="am-list-item">
+				<div class="am-list-thumb"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+				<div class="am-list-content">标签文本</div>
+				<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+			</a>
+			<a class="am-list-item">
+				<div class="am-list-thumb"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+				<div class="am-list-content">标签文本</div>
+				<div class="am-list-extra">辅助标签一二三四五六七八九</div>
+				<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+			</a>
+		</div>
+	</div>
+</div>
+
+
+<div class="demo-content">
+	<!--<div class="demo-type-title">图标＋两行文字</div>-->
+	<div class="am-list twoline">
+		<div class="am-list-header">图标＋两行文字</div>
+		<div class="am-list-body">
+			<div class="am-list-item">
+				<div class="am-list-thumb"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+				<div class="am-list-content">
+					<div class="am-list-title twocolumn">
+						<label>标签文本</label>
+						<div class="am-list-right-brief">
+							文本
+						</div>
+					</div>
+					<div class="am-list-brief twocolumn">
+						<label>辅助标签</label>
+						<div class="am-list-right-brief">
+							文本
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="am-list twoline">
+
+		<a href="#" class="am-list-item">
+			<div class="am-list-thumb"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+			<div class="am-list-content">
+				<div class="am-list-title">标签文本</div>
+				<div class="am-list-brief">辅助标签</div>
+			</div>
+
+			<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+		</a>
+		<a class="am-list-item">
+			<div class="am-list-thumb"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+			<div class="am-list-content">
+				<div class="am-list-title">标签文本</div>
+				<div class="am-list-brief">辅助标签</div>
+			</div>
+			<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+		</a>
+	</div>
+
+	<div class="am-list twoline">
+
+		<div class="am-list-item">
+			<div class="am-list-thumb"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt="">
+			</div>
+			<div class="am-list-content">
+				<div class="am-list-title twocolumn">
+					<label class="am-flexbox-item">标签文本标签文本标签文本标签文本标签文本标签文本标签文本</label>
+					<div class="am-list-right-brief">2016/12/31</div>
+				</div>
+				<div class="am-list-brief">辅助标签辅助标签辅助标签辅助标签辅助标签辅助标签辅助标签</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="am-list twoline">
+		<div class="am-list-body">
+			<div class="am-list-item">
+				<div class="am-list-thumb"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+				<div class="am-list-content">
+					<div class="am-list-title">标签文本</div>
+					<div class="am-list-brief">辅助标签</div>
+				</div>
+			</div>
+			<div class="am-list-item">
+				<div class="am-list-thumb"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+				<div class="am-list-content">
+					<div class="am-list-title">标签文本</div>
+					<div class="am-list-brief">辅助标签</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="demo-content">
+	<!--<div class="demo-type-title">露出图片OR图标</div>-->
+	<div class="am-list">
+		<div class="am-list-header">露出图片或图标</div>
+		<div class="am-list-body">
+			<a href="#" class="am-list-item">
+				<div class="am-list-content">
+					<div class="am-list-title">标签文本</div>
+				</div>
+				<div class="am-list-thumb right"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+				<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+			</a>
+		</div>
+	</div>
+	<div class="am-list">
+		<a href="#" class="am-list-item">
+			<div class="am-list-content">
+				<div class="am-list-title">标签文本</div>
+			</div>
+			<div class="am-list-thumb right"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+			<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+		</a>
+		<a href="#" class="am-list-item">
+			<div class="am-list-content">
+				<div class="am-list-title">标签文本</div>
+			</div>
+			<div class="am-list-thumb right"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+			<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+		</a>
+	</div>
+
+	<div class="am-list twoline">
+		<a href="#" class="am-list-item ">
+			<div class="am-list-content">
+				<div class="am-list-title">标签文本</div>
+				<div class="am-list-brief">辅助标签</div>
+			</div>
+			<div class="am-list-thumb right"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+			<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+		</a>
+		<a href="#" class="am-list-item">
+			<div class="am-list-content">
+				<div class="am-list-title">标签文本</div>
+				<div class="am-list-brief">辅助标签</div>
+			</div>
+			<div class="am-list-thumb right"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+			<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+		</a>
+	</div>
+
+	<div class="am-list twoline">
+		<div class="am-list-body">
+			<a href="#" class="am-list-item">
+				<div class="am-list-content">
+					<div class="am-list-title">标签文本</div>
+				</div>
+				<div class="am-list-thumb right"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+				<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+			</a>
+		</div>
+	</div>
+</div>
+
+
+<div class="demo-content">
+	<!--<div class="demo-type-title">消息类</div>-->
+	<div class="am-list twoline">
+		<div class="am-list-header">消息类</div>
+		<div class="am-list-body">
+			<div class="am-list-item">
+				<div class="am-list-thumb"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+				<div class="am-list-content">
+					<div class="am-list-title twocolumn">
+						<label>标签文本</label>
+						<div class="am-list-right-brief">
+							文本
+						</div>
+					</div>
+					<div class="am-list-brief twocolumn">
+						<label>辅助标签</label>
+						<div class="am-list-right-brief">
+							<img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="am-list twoline">
+		<div class="am-list-item">
+			<div class="am-list-thumb"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+			<div class="am-list-content">
+				<div class="am-list-title twocolumn">
+					<label>标签文本</label>
+					<div class="am-list-right-brief">
+						文本
+					</div>
+				</div>
+				<div class="am-list-brief twocolumn">
+					<label>辅助标签</label>
+					<div class="am-list-right-brief">
+						<img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="am-list-item">
+			<div class="am-list-thumb"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+			<div class="am-list-content">
+				<div class="am-list-title twocolumn">
+					<label>标签文本</label>
+					<div class="am-list-right-brief">
+						文本
+					</div>
+				</div>
+				<div class="am-list-brief twocolumn">
+					<label>辅助标签</label>
+					<div class="am-list-right-brief">
+						<img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="am-list twoline">
+		<div class="am-list-body">
+			<div class="am-list-item">
+				<div class="am-list-thumb"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+				<div class="am-list-content">
+					<div class="am-list-title twocolumn">
+						<label>标签文本</label>
+						<div class="am-list-right-brief">
+							文本
+						</div>
+					</div>
+					<div class="am-list-brief twocolumn">
+						<label>辅助标签</label>
+						<div class="am-list-right-brief">
+							<img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="am-list twoline">
+		<div class="am-list-item">
+			<div class="am-list-thumb"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+			<div class="am-list-content">
+				<div class="am-list-title twocolumn">
+					<label>标签文本</label>
+					<div class="am-list-right-brief">
+						文本
+					</div>
+				</div>
+				<div class="am-list-brief twocolumn">
+					<label>辅助标签</label>
+					<div class="am-list-right-brief">
+						文本
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="am-list-item">
+			<div class="am-list-thumb"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+			<div class="am-list-content">
+				<div class="am-list-title twocolumn">
+					<label>标签文本</label>
+					<div class="am-list-right-brief">
+						文本
+					</div>
+				</div>
+				<div class="am-list-brief twocolumn">
+					<label>辅助标签</label>
+					<div class="am-list-right-brief">
+						文本
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="demo-content">
+	<!--<div class="demo-type-title">单双行 图文组合</div>-->
+	<div class="am-list">
+		<div class="am-list-header">单双行 图文组合</div>
+		<div class="am-list-body">
+			<div class="am-list-item twoline">
+				<div class="am-list-thumb"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+				<div class="am-list-content">
+					<div class="am-list-title">标签文本</div>
+				</div>
+			</div>
+
+			<a class="am-list-item">
+				<div class="am-list-content">标签文本</div>
+				<div class="am-list-extra">辅助标签</div>
+				<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+			</a>
+
+			<a class="am-list-item">
+				<div class="am-list-content">标签文本</div>
+				<div class="am-list-extra">辅助标签</div>
+				<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+			</a>
+
+			<a class="am-list-item">
+				<div class="am-list-content">标签文本</div>
+				<div class="am-list-extra">辅助标签</div>
+				<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+			</a>
+
+		</div>
+	</div>
+</div>
+
+<div class="demo-content">
+	<!--<div class="demo-type-title">纯信息展示</div>-->
+	<div class="am-list info">
+		<div class="am-list-header">纯信息展示</div>
+		<div class="am-list-body">
+			<div class="am-list-item oneline">
+				<div class="am-list-content">标签文本标签文本</div>
+				<div class="am-list-extra">标签文本标签文本标签文本标签文本</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="am-list info">
+		<a class="am-list-item oneline">
+			<div class="am-list-content">标签文本</div>
+			<div class="am-list-extra">标签文本标签文本标签文本标签文本</div>
+			<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+		</a>
+	</div>
+
+	<div class="am-list info">
+		<a class="am-list-item">
+			<div  class="am-list-item-part">
+				<div class="am-list-content">标签文本</div>
+				<div class="am-list-extra">标签文本标签文本标签文本标签文本</div>
+				<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+			</div>
+			<div class="am-list-item-part">
+				<div class="am-list-extra">标签文本标签文本标签文本标签文本</div>
+			</div>
+		</a>
+	</div>
+
+	<div class="am-list info">
+		<div class="am-list-item">
+			<div  class="am-list-item-part">
+				<div class="am-list-content">标签文本</div>
+				<div class="am-list-extra">标签文本标签文本标签文本标签文本</div>
+			</div>
+			<div class="am-list-item-part">
+				<div class="am-list-extra">标签文本标签文本标签文本标签文本</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="am-list info">
+		<a class="am-list-item">
+			<div class="am-list-item-part">
+				<div class="am-list-content">标签文本</div>
+				<div class="am-list-extra">标签文本</div>
+				<div class="am-list-arrow"><span class="am-icon arrow horizontal"></span></div>
+			</div>
+			<div class="am-list-item-part">
+				<div class="am-list-content">标签文本</div>
+				<div class="am-list-extra">标签文本标签文本标签文本标签文本</div>
+			</div>
+		</a>
+	</div>
+</div>
+
+<div class="demo-content">
+	<!--<div class="demo-type-title">多项选择</div>-->
+	<div class="am-list">
+		<div class="am-list-header">多项选择</div>
+		<div class="am-list-body">
+			<label class="am-list-item check" for="c1">
+				<div class="am-list-content">表单项复选框——默认选中1</div>
+				<div class="am-checkbox">
+					<input type="checkbox" name="c1" checked="checked" id="c1">
+					<span class="icon-check"></span>
+				</div>
+			</label>
+			<label class="am-list-item check" for="c2">
+				<div class="am-list-content">表单项复选框——默认未选中</div>
+				<div class="am-checkbox">
+					<input type="checkbox" name="c2" id="c2">
+					<span class="icon-check"></span>
+				</div>
+			</label>
+			<label class="am-list-item check" for="c3">
+				<div class="am-list-content">表单项复选框——默认选不中</div>
+				<div class="am-checkbox">
+					<input type="checkbox" name="c3" disabled="disabled" checked="checked" id="c3">
+					<span class="icon-check"></span>
+				</div>
+			</label>
+		</div>
+	</div>
+</div>
+
+<div class="demo-content">
+	<div class="am-list">
+		<div class="am-list-header">复选框＋icon</div>
+		<div class="am-list-body">
+			<label class="am-list-item check" for="c4">
+				<div class="am-list-thumb"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+				<div class="am-list-content">表单项复选框——默认选中1</div>
+				<div class="am-checkbox">
+					<input type="checkbox" name="c4" checked="checked" id="c4">
+					<span class="icon-check"></span>
+				</div>
+			</label>
+			<label class="am-list-item check" for="c5">
+				<div class="am-list-thumb"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+				<div class="am-list-content">表单项复选框——默认未选中</div>
+				<div class="am-checkbox">
+					<input type="checkbox" name="c5" id="c5">
+					<span class="icon-check"></span>
+				</div>
+			</label>
+			<label class="am-list-item check" for="c6">
+				<div class="am-list-thumb"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+				<div class="am-list-content">表单项复选框——默认选不中</div>
+				<div class="am-checkbox">
+					<input type="checkbox" name="c6" disabled="disabled" checked="checked" id="c6">
+					<span class="icon-check"></span>
+				</div>
+			</label>
+			<label class="am-list-item check" for="c7">
+				<div class="am-list-thumb"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+				<div class="am-list-content">带说明</div>
+				<div class="am-checkbox">
+					<input type="checkbox" name="c7" checked="checked" id="c7">
+					<span class="icon-check"></span>
+				</div>
+			</label>
+		</div>
+	</div>
+</div>
+
+<div class="demo-content">
+	<div class="am-list twoline">
+		<div class="am-list-header">复选框＋双行列表</div>
+		<div class="am-list-body">
+			<label class="am-list-item check" for="cx1">
+				<div class="am-list-thumb"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+				<div class="am-list-content">
+					<div class="am-list-title">标签文本</div>
+					<div class="am-list-brief">辅助标签</div>
+				</div>
+				<div class="am-checkbox">
+					<input type="checkbox" name="cx1" disabled="disabled" checked="checked" id="cx1">
+					<span class="icon-check"></span>
+				</div>
+			</label>
+			<label class="am-list-item check" for="cx2">
+				<div class="am-list-thumb"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+				<div class="am-list-content">
+					<div class="am-list-title">标签文本</div>
+					<div class="am-list-brief">辅助标签</div>
+				</div>
+				<div class="am-checkbox">
+					<input type="checkbox" name="cx2" checked="checked" id="cx2">
+					<span class="icon-check"></span>
+				</div>
+			</label>
+		</div>
+	</div>
+</div>
+
+
+<div class="demo-content">
+	<!--<div class="demo-type-title">协议中复选框</div>-->
+	<!--<h5>没有复选框</h5>-->
+	<div>
+		<div class="am-checkbox mini argument">
+			<label style="margin-left: -10px">同意</label><a href="http://e.alipay.com" target="_blank">《信用支付服务合同》</a>
+		</div>
+	</div>
+	<!--<h5>已选中</h5>-->
+	<div>
+		<div class="am-checkbox mini argument">
+			<input id="agree1" type="checkbox" checked="checked">
+			<span class="icon-check"></span>
+			<label for="agree1">同意</label><a  href="http://e.alipay.com" target="_blank">《信用支付服务合同》</a>
+		</div>
+	</div>
+	<!--<h5>未选中</h5>-->
+
+	<div>
+		<div class="am-checkbox mini argument">
+			<input id="agree2" type="checkbox">
+			<span class="icon-check"></span>
+			<label for="agree2">同意</label><a  href="http://e.alipay.com" target="_blank">《信用支付服务合同》</a>
+		</div>
+	</div>
+
+	<!--<h5>选中不可改</h5>-->
+
+	<div>
+		<div class="am-checkbox mini argument">
+			<input id="agree3" type="checkbox" disabled="disabled" checked="checked">
+			<span class="icon-check"></span>
+			<label for="agree3">同意</label><a  href="http://e.alipay.com" target="_blank">《信用支付服务合同》</a>
+		</div>
+	</div>
+</div>
+
+<div class="demo-content">
+	<!--<div class="demo-type-title">单选框</div>-->
+	<div class="am-list">
+		<div class="am-list-header">单选框</div>
+		<div class="am-list-body">
+			<label class="am-list-item radio">
+				<div class="am-list-content">表单项单选框——选中标签</div>
+				<div class="am-checkbox">
+					<input type="radio" name="x2" checked="checked">
+					<span class="icon-check"></span>
+				</div>
+			</label>
+		</div>
+	</div>
+
+	<div class="am-list">
+		<div class="am-list-header">单选框</div>
+		<div class="am-list-body">
+			<label class="am-list-item radio">
+				<div class="am-list-content">表单项单选框——未选中标签</div>
+				<div class="am-checkbox">
+					<input type="radio" name="x21">
+					<span class="icon-check"></span>
+				</div>
+			</label>
+			<label class="am-list-item radio">
+				<div class="am-list-content">表单项单选框——选中标签</div>
+				<div class="am-checkbox">
+					<input type="radio" name="x21" checked="checked">
+					<span class="icon-check"></span>
+				</div>
+			</label>
+		</div>
+	</div>
+
+	<div class="am-list twoline">
+		<div class="am-list-header">单选框</div>
+		<div class="am-list-body">
+			<label class="am-list-item radio">
+				<div class="am-list-thumb"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+				<div class="am-list-content">
+					<div class="am-list-title">标签文本</div>
+					<div class="am-list-brief">辅助标签</div>
+				</div>
+				<div class="am-checkbox middle">
+					<input type="radio" name="x22" checked="checked">
+					<span class="icon-check"></span>
+				</div>
+			</label>
+			<label class="am-list-item radio">
+				<div class="am-list-thumb"><img src="https://os.alipayobjects.com/rmsportal/OhSzVdRBnfwiuCK.png" alt=""></div>
+				<div class="am-list-content">
+					<div class="am-list-title">标签文本</div>
+					<div class="am-list-brief">辅助标签</div>
+				</div>
+				<div class="am-checkbox middle">
+					<input type="radio" name="x22">
+					<span class="icon-check"></span>
+				</div>
+			</label>
+		</div>
+	</div>
+</div>
+
+<div class="demo-content">
+	<!--<div class="demo-type-title">表单</div>-->
+	<div class="am-list form">
+		<div class="am-list-header">常规类</div>
+		<div class="am-list-body">
+			<div class="am-list-item am-input-autoclear">
+				<div class="am-list-label">标签文本</div>
+				<div class="am-list-control">
+					<input type="text" placeholder="内容内容" value="">
+					<input type="hidden" placeholder="" value="">
+				</div>
+				<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="am-list form">
+		<div class="am-list-item am-input-autoclear">
+			<div class="am-list-label">标签文本</div>
+			<div class="am-list-control">
+				<input type="text" placeholder="内容内容" value="">
+				<input type="hidden" placeholder="" value="">
+			</div>
+			<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+		</div>
+		<div class="am-list-item am-input-autoclear">
+			<div class="am-list-label">标签文本</div>
+			<div class="am-list-control">
+				<input type="text" placeholder="内容内容" value="">
+				<input type="hidden" placeholder="" value="">
+			</div>
+			<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+		</div>
+	</div>
+
+	<div class="am-list form">
+		<div class="am-list-item am-input-autoclear">
+			<div class="am-list-label">标签</div>
+			<div class="am-list-control">
+				<input type="text" placeholder="内容内容" value="">
+				<input type="hidden" placeholder="" value="">
+			</div>
+			<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+		</div>
+	</div>
+
+	<div class="am-list form">
+		<div class="am-list-item am-input-autoclear">
+			<div class="am-list-label">标签文本</div>
+			<div class="am-list-control">
+				<input type="text" placeholder="内容内容" value="支付宝">
+				<input type="hidden" placeholder="" value="">
+			</div>
+			<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+		</div>
+		<div class="am-list-item am-input-autoclear">
+			<div class="am-list-label">标签文本</div>
+			<div class="am-list-control">
+				<input type="text" placeholder="内容内容">
+				<input type="hidden" placeholder="" value="">
+			</div>
+			<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+		</div>
+	</div>
+</div>
+
+<div class="demo-content">
+	<div class="am-list form">
+		<div class="am-list-header">下拉列表</div>
+		<div class="am-list-body">
+			<div class="am-list-item am-input-autoclear dropdown">
+
+				<div class="am-list-dropdown-main">
+					<div class="am-list-label">标签文本</div>
+					<div class="am-list-control">
+						<input type="text" placeholder="暗提示暗提示" value="">
+						<input type="hidden" placeholder="" value="">
+					</div>
+					<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+					<div class="am-list-arrow"><span class="am-icon arrow vertical"></span></div>
+				</div>
+
+				<div class="am-list-dropdown-list">
+					<div class="am-list-dropdown-item am-input-autoclear">
+						<div class="am-list-label">下拉内容</div>
+						<div class="am-list-control">
+							<input type="text" placeholder="暗提示暗提示" value="">
+							<input type="hidden" placeholder="" value="">
+						</div>
+						<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="am-list-item dropdown up">
+
+				<div class="am-list-dropdown-main">
+					<div class="am-list-label">标签文本</div>
+					<div class="am-list-control"></div>
+					<div class="am-list-arrow"><span class="am-icon arrow vertical up"></span></div>
+				</div>
+
+				<div class="am-list-dropdown-list">
+					<div class="am-list-dropdown-item am-input-autoclear">
+						<div class="am-list-label">下拉内容</div>
+						<div class="am-list-control"></div>
+					</div>
+					<div class="am-list-dropdown-item am-input-autoclear">
+						<div class="am-list-label">下拉内容</div>
+						<div class="am-list-control"></div>
+					</div>
+					<div class="am-list-dropdown-item am-input-autoclear">
+						<div class="am-list-label">下拉内容</div>
+						<div class="am-list-control"></div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div class="demo-content">
+	<div class="am-list form">
+		<div class="am-list-header">左边label超过4个字</div>
+		<div class="am-list-body">
+			<div class="am-list-item am-input-autoclear">
+				<div class="am-list-label">优惠券名称</div>
+				<div class="am-list-control">
+					<input type="text" placeholder="内容内容" value="">
+					<input type="hidden" placeholder="" value="">
+				</div>
+				<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="demo-content">
+	<div class="am-list am-list-5lb form">
+		<div class="am-list-header">非常规表单（label固定宽度对齐，5个字宽度对齐）</div>
+		<div class="am-list-body">
+			<div class="am-list-item am-input-autoclear">
+				<div class="am-list-label">优惠券名称</div>
+				<div class="am-list-control">
+					<input type="text" placeholder="暗提示暗提示" value="">
+					<input type="hidden" placeholder="" value="">
+				</div>
+				<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+			</div>
+			<div class="am-list-item am-input-autoclear">
+				<div class="am-list-label">优惠</div>
+				<div class="am-list-control">
+					<input type="text" placeholder="暗提示暗提示" value="">
+					<input type="hidden" placeholder="" value="">
+				</div>
+				<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+			</div>
+			<div class="am-list-item am-input-autoclear">
+				<div class="am-list-label">优惠券名称</div>
+				<div class="am-list-control">
+					<input type="text" placeholder="暗提示暗提示" value="">
+					<input type="hidden" placeholder="" value="">
+				</div>
+				<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+				<div class="am-list-thumb right"><i class="am-icon form camera"></i></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="demo-content">
+	<div class="am-list am-list-6lb form">
+		<div class="am-list-header">非常规表单（label固定宽度对齐，6个字宽度对齐）</div>
+		<div class="am-list-body">
+			<div class="am-list-item am-input-autoclear">
+				<div class="am-list-label">优惠券名称</div>
+				<div class="am-list-control">
+					<input type="text" placeholder="暗提示暗提示" value="">
+					<input type="hidden" placeholder="" value="">
+				</div>
+				<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+			</div>
+			<div class="am-list-item am-input-autoclear">
+				<div class="am-list-label">优惠券密码</div>
+				<div class="am-list-control">
+					<input type="text" placeholder="暗提示暗提示" value="">
+					<input type="hidden" placeholder="" value="">
+				</div>
+				<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+			</div>
+			<div class="am-list-item am-input-autoclear">
+				<div class="am-list-label">优惠券有效期</div>
+				<div class="am-list-control">永久可用</div>
+				<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="demo-content">
+	<div class="am-list form">
+		<div class="am-list-header">右边icon组合</div>
+		<div class="am-list-body">
+			<div class="am-list-item am-input-autoclear">
+				<div class="am-list-control">
+					<input type="text" placeholder="暗提示暗提示" value="">
+				</div>
+				<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+				<div class="am-list-thumb right"><i class="am-icon form cards"></i></div>
+			</div>
+			<div class="am-list-item am-input-autoclear">
+				<div class="am-list-control">
+					<input type="text" placeholder="暗提示暗提示" value="">
+				</div>
+				<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+				<div class="am-list-thumb right"><i class="am-icon form calculator"></i></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="demo-content">
+	<div class="am-list form">
+		<div class="am-list-header">输入错误的情况</div>
+		<div class="am-list-body">
+			<div class="am-list-item am-list-item-error am-input-autoclear">
+				<div class="am-list-control">
+					<input type="text" placeholder="暗提示暗提示" value="333">
+				</div>
+				<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="demo-content">
+	<div class="am-list form">
+		<div class="am-list-header">多行输入错误的情况</div>
+		<div class="am-list-body">
+			<div class="am-list-item am-list-item-error am-input-autoclear">
+				<div class="am-list-control">
+					<input type="text" placeholder="暗提示暗提示" value="">
+				</div>
+				<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+				<!--<div class="am-list-thumb"><i class="am-icon form contacts-mobile"></i></div>-->
+			</div>
+			<div class="am-list-item am-list-item-error am-input-autoclear">
+				<div class="am-list-control">
+					<input type="text" placeholder="暗提示暗提示" value="">
+				</div>
+				<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+				<!--<div class="am-list-thumb"><i class="am-icon form bill"></i></div>-->
+			</div>
+			<div class="am-list-item am-list-item-error am-input-autoclear">
+				<div class="am-list-control">
+					<input type="text" placeholder="暗提示暗提示" value="">
+				</div>
+				<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+				<!--<div class="am-list-thumb"><i class="am-icon form scan"></i></div>-->
+			</div>
+			<div class="am-list-item am-list-item-error am-input-autoclear">
+				<div class="am-list-control">
+					<input type="text" placeholder="暗提示暗提示" value="">
+				</div>
+				<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+				<!--<div class="am-list-thumb"><i class="am-icon form contacts-alipay"></i></div>-->
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="demo-content">
+	<div class="am-list form">
+		<div class="am-list-header">下拉选择</div>
+		<div class="am-list-body">
+			<div class="am-list-item select">
+				<div class="am-list-content">
+					<select>
+						<option>文本内容1</option>
+						<option>文本内容2</option>
+					</select>
+				</div>
+				<div class="am-list-arrow"><span class="am-icon arrow vertical"></span></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!--<div class="demo-type-title">校验码</div>-->
+<div class="demo-content">
+	<div class="am-list form">
+		<div class="am-list-header">校验码</div>
+		<div class="am-list-item am-input-autoclear">
+			<div class="am-list-label">校验码</div>
+			<div class="am-list-control">
+				<input type="text" placeholder="输入短信校验码" value="">
+			</div>
+			<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+			<div class="am-list-button">
+				<button type="button">发送校验码</button>
+			</div>
+		</div>
+	</div>
+	<div class="am-list form">
+		<div class="am-list-item am-input-autoclear">
+			<div class="am-list-label">校验码</div>
+			<div class="am-list-control">
+				<input type="text" placeholder="输入校验码" value="">
+			</div>
+			<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+			<div class="am-list-button">
+				<button type="button" disabled="disabled">58秒后重发</button>
+			</div>
+		</div>
+	</div>
+	<div class="am-list form">
+		<div class="am-list-item am-input-autoclear">
+			<div class="am-list-label">校验码</div>
+			<div class="am-list-control">
+				<input type="text" placeholder="输入校验码" value="">
+			</div>
+			<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+			<div class="am-list-button">
+				<button type="button">重发校验码</button>
+			</div>
+		</div>
+	</div>
+	<div class="am-list form">
+		<div class="am-list-item am-input-autoclear">
+			<div class="am-list-label">校验码</div>
+			<div class="am-list-control">
+				<input type="text" placeholder="右侧校验码" value="">
+			</div>
+			<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+			<a class="am-list-button">
+				<div class="am-captcha-figure"><img src="https://t.alipayobjects.com/images/rmsweb/T1lFlgXepkXXXXXXXX.png"></div>
+				<div class="am-icon captcha-refresh"></div>
+			</a>
+		</div>
+	</div>
+	<div class="am-list form">
+		<div class="am-list-item am-input-autoclear">
+			<div class="am-list-label">校验码</div>
+			<div class="am-list-control">
+				<input type="text" placeholder="右侧校验码" value="">
+			</div>
+			<div class="am-list-clear"><i class="am-icon-clear am-icon"></i></div>
+			<a class="am-list-button">
+				<div class="am-captcha-figure"><button type="button" disabled="disabled">加载中...</button></div>
+				<div class="am-icon captcha-refresh"></div>
+			</a>
+		</div>
+	</div>
+</div>
+</div>
+</script>
+
+<script type="text/html" id="tpl-search">
+	<div class="demo demo-search">
+		<div class="demo-header">搜索</div>
+		<div class="demo-header-brief">Search Bars</div>
+
+		<div class="demo-content">
+			<div class="demo-type-title">初始状态</div>
+			<div class="am-search am-input-autoclear">
+				<div class="am-search-input search-start">
+					<div class="am-search-icon">
+						<i class="am-icon search"></i>
+						<span class="am-search-ph">搜索</span>
+					</div>
+
+					<input class="am-search-value" type="text" placeholder="搜索" value="">
+					<div class="am-search-clear"><i class="am-icon-clear am-icon clear-tiny"></i></div>
+				</div>
+				<a type="button" class="am-search-button">取消</a>
+
+			</div>
+			<div class="demo-type-title">未输入文字</div>
+			<div class="am-search am-input-autoclear">
+				<div class="am-search-input">
+					<div class="am-search-icon">
+						<i class="am-icon search"></i>
+						<span class="am-search-ph">搜索</span>
+					</div>
+					<input class="am-search-value" type="text" placeholder="搜索" value="">
+					<div class="am-search-clear"><i class="am-icon-clear am-icon clear-tiny"></i></div>
+				</div>
+				<a type="button"  class="am-search-button">取消</a>
+			</div>
+			<div class="demo-type-title">输入状态</div>
+			<div class="am-search am-input-autoclear">
+				<div class="am-search-input">
+					<div class="am-search-icon">
+						<i class="am-icon search"></i>
+						<span class="am-search-ph">搜索</span>
+					</div>
+					<input class="am-search-value" type="text" placeholder="搜索" value="搜索内容">
+					<div class="am-search-clear"><i class="am-icon-clear am-icon clear-tiny"></i></div>
+				</div>
+
+				<a class="am-search-button" type="button">取消</a>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script type="text/html" id="tpl-tab">
+	<div class="demo demo-tab">
+		<div class="demo-header">标签栏</div>
+		<div class="demo-header-brief">Tab Bars</div>
+
+		<div class="demo-content">
+			<!--<div class="am-tab">-->
+			<!--<div class="am-tab-item">分段</div>-->
+			<!--<div class="am-tab-item selected">分段2</div>-->
+			<!--</div>-->
+			<div class="am-tab">
+				<div class="am-tab-item selected">分段</div>
+				<div class="am-tab-item">分段2</div>
+			</div>
+			<div class="am-tab">
+				<div class="am-tab-item">分段</div>
+				<div class="am-tab-item selected">分段2</div>
+				<div class="am-tab-item">分段3</div>
+			</div>
+			<!--<div class="am-tab">-->
+			<!--<a href="#" class="am-tab-item">分段</a>-->
+			<!--<span class="am-tab-item selected">分段2</span>-->
+			<!--<a href="#" class="am-tab-item">分段3</a>-->
+			<!--</div>-->
+			<div class="am-tab">
+				<button class="am-tab-item">分段</button>
+				<button class="am-tab-item">分段2</button>
+				<button class="am-tab-item selected">分段3</button>
+			</div>
+
+			<!--<div class="am-tab">-->
+			<!--<button class="am-tab-item selected">分段</button>-->
+			<!--<button class="am-tab-item">分段1</button>-->
+			<!--<button class="am-tab-item">分段2</button>-->
+			<!--<button class="am-tab-item">分段3</button>-->
+			<!--</div>-->
+		</div>
+	</div>
+</script>
+
+<script type="text/html" id="tpl-process">
+	<div class="demo demo-process">
+		<div class="demo-header">支付进度</div>
+		<div class="demo-header-brief">Process</div>
+
+		<div class="demo-content">
+			<div class="am-process">
+				<div class="am-process-item pay">
+					<i class="am-icon process success"></i>
+					<div class="am-process-content">
+						<div class="am-process-main">转入成功</div>
+						<div class="am-process-brief">手机号码:18938754456</div>
+					</div>
+					<div class="am-process-down-border"></div>
+				</div>
+				<div class="am-process-item unpay">
+					<i class="am-icon process unpay"></i>
+					<div class="am-process-content">
+						<div class="am-process-main">未支付</div>
+						<div class="am-process-brief">手机号码:18938754456</div>
+					</div>
+					<div class="am-process-up-border"></div>
+					<div class="am-process-down-border"></div>
+				</div>
+				<div class="am-process-item unpay">
+					<i class="am-icon process unpay"></i>
+					<div class="am-process-content">
+						<div class="am-process-main">未支付</div>
+						<div class="am-process-brief">手机号码:18938754456</div>
+					</div>
+					<div class="am-process-up-border"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="demo-content">
+			<div class="am-process">
+				<div class="am-process-item pay">
+					<i class="am-icon process pay"></i>
+					<div class="am-process-content">
+						<div class="am-process-main">支付成功</div>
+						<div class="am-process-brief">手机号码:18938754456</div>
+					</div>
+					<div class="am-process-down-border"></div>
+				</div>
+				<div class="am-process-item pay">
+					<i class="am-icon process success"></i>
+					<div class="am-process-content">
+						<div class="am-process-main">转入成功</div>
+						<div class="am-process-brief">手机号码:18938754456</div>
+					</div>
+					<div class="am-process-up-border"></div>
+					<div class="am-process-down-border"></div>
+				</div>
+				<div class="am-process-item fail">
+					<i class="am-icon process fail"></i>
+					<div class="am-process-content">
+						<div class="am-process-main">支付失败</div>
+					</div>
+					<div class="am-process-up-border"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="demo-content">
+			<div class="am-process">
+				<div class="am-process-item pay">
+					<i class="am-icon process pay"></i>
+					<div class="am-process-content">
+						<div class="am-process-main">支付成功</div>
+						<div class="am-process-brief">辅助说明文本辅助说明文本</div>
+						<div class="am-process-brief">辅助说明文本辅助说明文本</div>
+					</div>
+					<div class="am-process-down-border"></div>
+				</div>
+				<div class="am-process-item pay">
+					<i class="am-icon process success"></i>
+					<div class="am-process-content">
+						<div class="am-process-main">转入成功</div>
+						<div class="am-process-brief">辅助说明文本辅助说明文本</div>
+						<div class="am-process-brief">辅助说明文本辅助说明文本</div>
+					</div>
+					<div class="am-process-up-border"></div>
+					<div class="am-process-down-border"></div>
+				</div>
+				<div class="am-process-item fail">
+					<i class="am-icon process fail"></i>
+					<div class="am-process-content">
+						<div class="am-process-main">支付失败</div>
+					</div>
+					<div class="am-process-up-border"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script type="text/html" id="tpl-message">
+<div class="demo demo-message">
+	<div class="demo-header">提示</div>
+	<div class="demo-header-brief">Message</div>
+
+	<div class="demo-content">
+		<!--<div class="demo-type-title">支付成功</div>-->
+		<div class="am-message result">
+			<i class="am-icon result pay"></i>
+			<div class="am-message-main">支付成功</div>
+			<div class="am-message-em">50.00元</div>
+			<div class="am-message-sub">当前可用额度6,000.00元</div>
+		</div>
+
+		<div class="am-message">
+			<i class="am-icon message pay"></i>
+			<div class="am-message-main">支付成功</div>
+		</div>
+
+		<div class="am-message multi">
+			<i class="am-icon message pay"></i>
+			<div class="am-message-main">主提示</div>
+			<div class="am-message-sub">副提示</div>
+		</div>
+	</div>
+
+	<!--<div class="demo-type-title">成功提示</div>-->
+	<div class="demo-content">
+		<div class="am-message result">
+			<i class="am-icon result success"></i>
+			<div class="am-message-main">成功</div>
+			<div class="am-message-sub">您的操作已经成功</div>
+		</div>
+		<div class="am-message">
+			<i class="am-icon message success"></i>
+			<div class="am-message-main">成功</div>
+		</div>
+		<div class="am-message multi">
+			<i class="am-icon message success"></i>
+			<div class="am-message-main">主提示</div>
+			<div class="am-message-sub">副提示</div>
+		</div>
+	</div>
+
+	<!--<div class="demo-message-title">支付失败</div>-->
+	<div class="demo-content">
+		<div class="am-message result">
+			<i class="am-icon result error"></i>
+			<div class="am-message-main">失败</div>
+			<div class="am-message-sub">所选银行卡余额不足</div>
+		</div>
+		<div class="am-message">
+			<i class="am-icon message error"></i>
+			<div class="am-message-main">失败</div>
+		</div>
+		<div class="am-message multi">
+			<i class="am-icon message error"></i>
+			<div class="am-message-main">主提示</div>
+			<div class="am-message-sub">副提示</div>
+		</div>
+		<div class="am-message week">
+			<i class="am-icon message-week error"></i>
+			<div class="am-message-main">文字提示</div>
+		</div>
+	</div>
+
+	<!--<div class="demo-message-title">无法完成</div>-->
+	<div class="demo-content">
+		<div class="am-message result">
+			<i class="am-icon result warn"></i>
+			<div class="am-message-main">无法完成操作</div>
+			<div class="am-message-sub">由于你的支付宝账户还未绑定淘宝账户请登<br />请登录www.taobao.com</div>
+		</div>
+		<div class="am-message">
+			<i class="am-icon message warn"></i>
+			<div class="am-message-main">警告</div>
+		</div>
+		<div class="am-message multi">
+			<i class="am-icon message warn"></i>
+			<div class="am-message-main">主提示</div>
+			<div class="am-message-sub">副提示</div>
+		</div>
+		<div class="am-message week">
+			<i class="am-icon message-week warn"></i>
+			<div class="am-message-main">文字提示</div>
+		</div>
+	</div>
+
+	<!--<div class="demo-message-title">提示信息</div>-->
+	<div class="demo-content">
+		<div class="am-message result">
+			<i class="am-icon result info"></i>
+			<div class="am-message-main">提示</div>
+			<div class="am-message-sub">辅助信息</div>
+		</div>
+		<div class="am-message">
+			<i class="am-icon message info"></i>
+			<div class="am-message-main">提示</div>
+		</div>
+		<div class="am-message multi">
+			<i class="am-icon message info"></i>
+			<div class="am-message-main">主提示</div>
+			<div class="am-message-sub">副提示</div>
+		</div>
+
+		<div class="am-message week">
+			<i class="am-icon message-week info"></i>
+			<div class="am-message-main">文字提示</div>
+		</div>
+	</div>
+
+	<!--<div class="demo-message-title">等待支付</div>-->
+	<div class="demo-content">
+		<div class="am-message result">
+			<i class="am-icon result wait"></i>
+			<div class="am-message-main">等待</div>
+			<div class="am-message-sub">已提交申请，等待银行处理</div>
+		</div>
+		<div class="am-message">
+			<i class="am-icon message wait"></i>
+			<div class="am-message-main">等待</div>
+		</div>
+		<div class="am-message multi">
+			<i class="am-icon message wait"></i>
+			<div class="am-message-main">主提示</div>
+			<div class="am-message-sub">副提示</div>
+		</div>
+	</div>
+
+</div>
+
+<div class="demo demo-toast">
+	<div class="demo-type-title">Toast提示</div>
+	<div class="demo-content">
+		<div class="am-toast">
+			<div class="am-toast-text">
+				<span class="am-icon toast loading"></span> 载入中
+			</div>
+			<div class="am-toast-text">
+				<span class="am-icon toast warn"></span> 警示信息
+			</div>
+			<div class="am-toast-text">
+				<span class="am-icon toast success"></span> 成功提醒
+			</div>
+		</div>
+	</div>
+
+	<div class="demo-type-title">Toast提示 失败提示</div>
+	<div class="demo-content">
+		<div class="am-toast">
+			<div class="am-toast-text">
+				<span class="am-icon toast fail"></span>失败提醒
+			</div>
+			<div class="am-toast-text">
+				<span class="am-icon toast network"></span> 网络无法链接
+			</div>
+			<div class="am-toast-text">
+				<span class="am-icon toast network"></span> 网络不给力
+			</div>
+		</div>
+	</div>
+
+	<div class="demo-type-title">Toast提示 失败提示</div>
+	<div class="demo-content">
+		<div class="am-toast">
+			<div class="am-toast-text">
+				<span class="am-icon toast network"></span> 系统出错，正在排查
+			</div>
+			<div class="am-toast-text">
+				<span class="am-icon toast network"></span> 系统正忙，稍后再试
+			</div>
+		</div>
+	</div>
+
+	<div class="demo-type-title">Toast提示 纯文字</div>
+	<div class="demo-content">
+		<div class="am-toast text">
+			<div class="am-toast-text">
+				自定义业务文案最多14个字符
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="demo demo-loading">
+
+	<div class="demo-type-title">加载提示 局部loading</div>
+
+	<div class="demo-content">
+		<div class="am-loading">
+			<i class="am-icon loading"></i>
+		</div>
+		<div style="color:#F4333C;background-color: #fff; text-align: center; height: 100px;">内容显示区域</div>
+		<div style="color:#F4333C;background-color: #fff; text-align: center; height: 100px;">内容显示区域</div>
+		<div class="am-loading">
+			<i class="am-icon loading"></i>
+		</div>
+	</div>
+
+	<div class="demo-type-title">加载提示 页面loading</div>
+
+	<div class="demo-content">
+		<div style="color:#F4333C;background-color: #fff; text-align: center; height: 100px;">内容显示区域</div>
+
+		<div class="am-loading page">
+			<i class="am-icon loading"></i>
+			<div class="am-loading-text">加载中</div>
+		</div>
+
+		<div style="color:#F4333C;background-color: #fff; text-align: center; height: 100px;">内容显示区域</div>
+	</div>
+</div>
+</script>
+
+<script type="text/html" id="tpl-notice">
+	<div class="demo demo-notice">
+		<div class="demo-header">公告</div>
+		<div class="demo-header-brief">Notice</div>
+
+		<div class="demo-type-title">顶部公告</div>
+		<div class="demo-content">
+			<div class="am-notice">
+				<div class="am-notice-content">防欺诈盗号，请勿泄露支付密码</div>
+				<div class="am-notice-operation"><a class="am-notice-close" href="#"></a></div>
+			</div>
+			<div class="am-notice">
+				<div class="am-notice-content">因全国公民身份系统升级，添加银行卡银行卡银行卡银行卡银</div>
+				<div class="am-notice-operation"><a class="am-notice-go" href="#"></a></div>
+			</div>
+			<div class="am-notice">
+				<div class="am-notice-content">最近一次打车还没付车费哦最近一次打车还没付车费哦最近一次打车还没付车费哦最近一次打车还没付车费哦最近一次打车还没付车费哦最近一次打车还没付车费哦最近一次打车还没付车费哦</div>
+			</div>
+		</div>
+
+		<div class="demo-type-title">临时通知</div>
+		<div class="demo-content">
+			<div class="am-inform">
+				<div class="am-inform-content">防欺诈盗号，请勿泄露支付密码</div>
+				<div class="am-inform-operation"><a class="am-inform-button">知道了</a></div>
+			</div>
+			<div class="am-inform">
+				<div class="am-inform-content">最近一次打车还没付车费哦</div>
+				<div class="am-inform-operation"><a class="am-inform-go" href="#"></a></div>
+			</div>
+			<div class="am-inform">
+				<div class="am-inform-content">最近一次打车还没付车费哦最近一次打车还没付车费哦最近一次打车还没付车费哦最近一次打车还没付车费哦最近一次打车还没付车费哦最近一次打车还没付车费哦最近一次打车还没付车费哦</div>
+			</div>
+		</div>
+
+		<div class="demo-type-title"></div>
+	</div>
+</script>
+
+<script type="text/html" id="tpl-popmenu">
+	<div class="demo demo-popmenu">
+		<div class="demo-header">Pop Menu</div>
+		<div class="demo-header-brief">浮出菜单</div>
+
+		<div class="demo-type-title">浮动菜单<i class="dot">...</i></div>
+		<div class="demo-content">
+			<div class="am-popmenu-mask show"></div>
+			<div class="am-popmenu">
+				<a class="am-popmenu-item">
+					<div class="am-popmenu-content">选择一</div>
+				</a>
+				<a class="am-popmenu-item">
+					<div class="am-popmenu-content">选择二</div>
+				</a>
+				<a class="am-popmenu-item hover">
+					<div class="am-popmenu-content">点击效果</div>
+				</a>
+				<a class="am-popmenu-item">
+					<div class="am-popmenu-content">选择四</div>
+				</a>
+				<a class="am-popmenu-item">
+					<div class="am-popmenu-content">选择五</div>
+				</a>
+			</div>
+		</div>
+
+
+		<div class="demo-type-title">带icon浮动菜单<i class="dot">...</i></div>
+		<div class="demo-content">
+			<div><img /></div>
+			<div class="am-popmenu-mask show"></div>
+			<ul class="am-popmenu icon-popmenu">
+				<li class="am-popmenu-item">
+					<div class="am-popmenu-content">
+						<img class="icon" src="https://os.alipayobjects.com/rmsportal/XMnADSCLrqbfbjW.png">
+						<span class="text">添加朋友</span>
+						<span class="am-bubble reddot"></span>
+					</div>
+				</li>
+				<li class="am-popmenu-item">
+					<div class="am-popmenu-content">
+						<img class="icon" src="https://os.alipayobjects.com/rmsportal/VuLlWdHvIWaCYgy.png">
+						<span class="text">菜单超长由业务把控</span>
+						<span class="am-bubble">2</span>
+					</div>
+				</li>
+				<li class="am-popmenu-item">
+					<div class="am-popmenu-content">
+						<img class="icon" src="https://os.alipayobjects.com/rmsportal/ihcqXRqhVtcNebY.png">
+						<span class="text">扫一扫</span>
+					</div>
+				</li>
+				<li class="am-popmenu-item">
+					<div class="am-popmenu-content">
+						<img class="icon" src="https://os.alipayobjects.com/rmsportal/gKcOuuUqKWuYwkx.png">
+						<span class="text">我的二维码/收款</span>
+						<span class="am-bubble two-num">24</span>
+					</div>
+				</li>
+				<li class="am-popmenu-item">
+					<div class="am-popmenu-content">
+						<img class="icon" src="https://os.alipayobjects.com/rmsportal/ptFMjUsIhfDyAfp.png">
+						<span class="text">帮助</span>
+						<span class="am-bubble dot-num">...</span>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+</script>
+
+<script type="text/html" id="tpl-card">
+	<div class="demo demo-card">
+		<div class="demo-header">卡片</div>
+		<div class="demo-header-brief">Card</div>
+
+		<div class="demo-content">
+			<div class="am-card">
+				<div class="am-card-item">
+					<div class="am-card-item-header">
+						<h3 class="am-card-item-title">标题</h3>
+					</div>
+					<div class="am-card-item-content">
+						<div class="am-card-item-subject">文本内容文本内容</div>
+						<div class="am-card-item-brief">文本说明文本说明文本说明文本说明文本说明文本说明文本说明</div>
+						<div class="am-card-item-footnote">
+							<div class="am-card-item-origin">邵逸夫医院</div>
+							<div class="am-card-item-tims">14-8-21</div>
+						</div>
+					</div>
+					<div class="am-card-item-footer">
+						<a class="am-card-item-more">更多</a>
+					</div>
+				</div>
+				<a class="am-card-item">
+					<div class="am-card-item-header">
+						<h3 class="am-card-item-title">整块可点</h3>
+					</div>
+					<div class="am-card-item-content">
+						<div class="am-card-item-subject">文本内容文本内容</div>
+						<div class="am-card-item-brief">文本说明文本说明文本说明文本说明文本说明文本说明文本说明</div>
+						<div class="am-card-item-footnote">
+							<div class="am-card-item-origin">邵逸夫医院</div>
+							<div class="am-card-item-tims">14-8-21</div>
+						</div>
+					</div>
+					<div class="am-card-item-footer">
+						<div class="am-card-item-more">更多</div>
+					</div>
+				</a>
+				<div class="am-card-item">
+					<div class="am-card-item-header">
+						<h3 class="am-card-item-title">标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2</h3>
+					</div>
+					<div class="am-card-item-content">
+						<div class="am-card-item-subject">文本内容文本内容</div>
+						<div class="am-card-item-brief">文本说明文本说明文本说明文本说明文本说明文本说明文本说明</div>
+						<div class="am-card-item-footnote">
+							<div class="am-card-item-origin">邵逸夫医院</div>
+							<div class="am-card-item-tims">14-8-21</div>
+						</div>
+					</div>
+					<div class="am-card-item-footer">
+						<a class="am-card-item-more">更多</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script type="text/html" id="tpl-agreement">
+	<div class="demo demo-agreement">
+		<div class="demo-header">服务协议</div>
+		<div class="demo-header-brief">Agreement</div>
+
+		<div class="demo-content">
+			<div class="am-agreement">
+				<h2 class="am-agreement-title">支付宝服务协议</h2>
+				<div class="am-agreement-content">
+					<p>支付宝服务是由支付宝网络技术有限公司向支支付宝服务是由支付宝网络技术有限公司向支支付宝服务是由支付宝网络技术有限公司向支</p>
+					<h4>一、声明与承诺</h4>
+					<p>1.1  本协议已对与您的权益有或可能具有重大关系的条款，及对本公司具有或可能具有及对本公司具有或可能具有及对本公司具有或可能具有</p>
+					<p>1.2  本协议已对与您的权益有或可能具有重大<span class="am-agreement-strong">已满十八周岁才可申请</span></p>
+					<h4>二、定义和理解</h4>
+					<p>2.1 支付宝账户：本公司向您提供的唯一编号。您可自行为该支付宝账户设置密码，并用以查询或计量您的预付，应收或应付款。</p>
+					<p>2.2 更多协议：<span class="blue">《争议处理规则》、《支付宝交易通用规则》您提供的唯一编号</span>《争议处理规则》、《支付宝交易通用规则》您提供的唯一编号。您可自行为该支付宝账户设置密码，并用以查询或计量您的预付，应收或应付款。</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script type="text/html" id="tpl-article">
+	<div class="demo demo-article">
+		<div class="demo-header">常规文章</div>
+		<div class="demo-header-brief">Article</div>
+
+		<div class="demo-content">
+			<div class="am-article">
+				<h2>中石化加油卡办卡章程</h2>
+				<time>2013-11-23 12:20:00</time>
+				<p><img src="https://os.alipayobjects.com/rmsportal/DzdIWWtLuecXwwj.jpeg" width="290" height="200"></p>
+				<p>文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容</p>
+				<div class="am-article-footer">
+					<a class="am-article-more" href="#">更多</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</script>
+
+<script type="text/html" id="tpl-city-select">
+	<div class="demo demo-city-select">
+		<div class="demo-header">城市选择</div>
+		<div class="demo-header-brief">city-select</div>
+
+		<div class="demo-content">
+			<div class="am-city-select flat">
+				<div class="am-city-select-sub current_city">当前城市</div>
+				<div class="am-city-select-list selected">
+					<div class="am-city-select-item">
+						<div class="img-wrap"><img src="https://os.alipayobjects.com/rmsportal/cnrMkIKxRkHHeyP.png"></div>
+						<label>上海</label>
+					</div>
+				</div>
+				<div class="am-city-select-sub">热门城市</div>
+				<div class="am-city-select-list">
+					<a class="am-city-select-item"><label>上海</label></a>
+					<a class="am-city-select-item"><label>武汉</label></a>
+					<a class="am-city-select-item"><label>长沙</label></a>
+					<a class="am-city-select-item"><label>北京</label></a>
+					<a class="am-city-select-item"><label>杭州</label></a>
+					<a class="am-city-select-item"><label>深圳</label></a>
+				</div>
+				<div class="am-city-select-order">B</div>
+				<div class="am-city-select-list">
+					<a class="am-city-select-item"><label>上海</label></a>
+					<a class="am-city-select-item"><label>武汉</label></a>
+					<a class="am-city-select-item"><label>长沙</label></a>
+					<a class="am-city-select-item"><label>北京</label></a>
+					<a class="am-city-select-item"><label>杭州</label></a>
+					<a class="am-city-select-item"><label>深圳</label></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script type="text/html" id="tpl-page-result">
+	<div class="demo demo-page-result">
+		<div class="demo-header">结果页面</div>
+		<div class="demo-header-brief">Page Result</div>
+
+		<div class="demo-type-title">本地网络超时</div>
+
+		<div class="demo-content">
+			<div class="demo-mobile">
+				<div class="am-page-result">
+					<div class="am-page-result-wrap combine-page">
+						<div class="am-page-result-pic am-icon page-no-network"></div>
+						<div class="am-page-result-title">网络不给力</div>
+						<div class="am-page-result-brief">世界上最遥远的距离莫过于此</div>
+						<a class="am-page-result-button">刷新</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="demo-type-title">本地网络未连接</div>
+
+		<div class="demo-content">
+			<div class="demo-mobile">
+				<div class="am-page-result">
+					<div class="am-page-result-wrap">
+						<div class="am-page-result-pic am-icon page-network"></div>
+						<div class="am-page-result-title">网络无法连接</div>
+						<div class="am-page-result-brief">世界上最遥远的距离莫过于此</div>
+						<a class="am-page-result-button">刷新</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="demo-type-title">系统异常或错误，且不可以重试</div>
+
+		<div class="demo-content">
+			<div class="demo-mobile">
+				<div class="am-page-result">
+					<div class="am-page-result-wrap">
+						<div class="am-page-result-pic am-icon page-error"></div>
+						<div class="am-page-result-title">系统出错，正在排查</div>
+						<div class="am-page-result-brief">耽误您的时候，我们深感歉意</div>
+						<a class="am-page-result-button">刷新</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="demo-type-title">系统异常或错误，且可以重试</div>
+
+		<div class="demo-content">
+			<div class="demo-mobile">
+				<div class="am-page-result">
+					<div class="am-page-result-wrap no-button">
+						<div class="am-page-result-pic am-icon page-busy"></div>
+						<div class="am-page-result-title">系统正忙，稍候再试</div>
+						<div class="am-page-result-brief">耽误您的时候，我们深感歉意</div>
+						<a class="am-page-result-button">刷新</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="demo-type-title">业务异常或出错</div>
+
+		<div class="demo-content">
+			<div class="demo-mobile">
+				<div class="am-page-result">
+					<div class="am-page-result-wrap">
+						<div class="am-page-result-pic am-icon page-error"></div>
+						<div class="am-page-result-title">业务自定义文案最多14个字符</div>
+						<div class="am-page-result-brief">业务自定义文案最多两行，可不要辅助文案</div>
+						<a class="am-page-result-button">刷新</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="demo-type-title">业务异常或出错</div>
+
+		<div class="demo-content">
+			<div class="demo-mobile">
+				<div class="am-page-result">
+					<div class="am-page-result-wrap combine-page">
+						<div class="am-page-result-pic am-icon page-err"></div>
+						<div class="am-page-result-title">业务自定义文案最多14个字符</div>
+						<div class="am-page-result-brief">业务自定义文案最多两行，可不要辅助文案</div>
+						<a class="am-page-result-button">刷新</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="demo-type-title">业务严重异常，需要引导的异常</div>
+
+		<div class="demo-content">
+			<div class="demo-mobile">
+				<div class="am-page-result">
+					<div class="am-page-result-wrap">
+						<div class="am-page-result-pic am-icon page-error"></div>
+						<div class="am-page-result-title">业务自定义文案最多14个字符</div>
+						<div class="am-page-result-brief">业务自定义文案最多两行，可不要辅助文案</div>
+
+
+						<a class="am-page-result-button">操作选项一</a>
+						<a class="am-page-result-button">操作选项二</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="demo-type-title">业务严重异常，需要引导的异常</div>
+
+		<div class="demo-content">
+			<div class="demo-mobile">
+				<div class="am-page-result">
+					<div class="am-page-result-wrap combine-page">
+						<div class="am-page-result-pic am-icon page-err"></div>
+						<div class="am-page-result-title">业务自定义文案最多14个字符</div>
+						<div class="am-page-result-brief">业务自定义文案最多两行，可不要辅助文案</div>
+
+						<a class="am-page-result-button">操作选项一</a>
+						<a class="am-page-result-button">操作选项二</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="demo-type-title">返回结果为空</div>
+
+		<div class="demo-content">
+			<div class="demo-mobile">
+				<div class="am-page-result">
+					<div class="am-page-result-wrap combine-page">
+						<div class="am-page-result-pic am-icon page-blank"></div>
+						<div class="am-page-result-title">业务自定义文案最多14个字符</div>
+						<div class="am-page-result-brief">业务自定义文案最多两行，可不要辅助文案</div>
+						<a class="am-page-result-button">刷新</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="demo-type-title">空白页</div>
+
+		<div class="demo-content">
+			<div class="demo-mobile">
+				<div class="am-page-result">
+					<div class="am-page-result-wrap">
+						<div class="am-page-result-pic am-icon page-empty"></div>
+						<div class="am-page-result-title">空白页</div>
+						<a class="am-page-result-button">刷新</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="demo-type-title">404页</div>
+
+		<div class="demo-content">
+			<div class="demo-mobile">
+				<div class="am-page-result">
+					<div class="am-page-result-wrap">
+						<div class="am-page-result-pic am-icon page-nofound"></div>
+						<div class="am-page-result-title">404</div>
+						<a class="am-page-result-button">刷新</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script type="text/html" id="tpl-dialog">
+<div class="demo demo-dialog">
+
+<div class="demo-header">对话框</div>
+<div class="demo-header-brief">Dialog</div>
+
+<div class="demo-type-title">文字＋小插图 对话框</div>
+<div class="demo-content">
+	<div class="demo-mobile">
+		<div class="am-dialog simage show">
+			<div class="am-dialog-wrap">
+				<div class="am-dialog-img">
+					<img src="https://zos.alipayobjects.com/rmsportal/MerSoqDoDahCExq.png">
+				</div>
+				<div class="am-dialog-header">
+					<h3>标题文字</h3>
+				</div>
+				<div class="am-dialog-body">
+					<p class="am-dialog-brief">辅助说明文字辅助说明文字辅助说明文字辅助说明文字</p>
+				</div>
+
+				<div class="am-dialog-footer">
+					<a class="am-dialog-button">取消</a>
+					<a class="am-dialog-button">确定</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="demo-type-title">文字＋插图 对话框</div>
+
+<div class="demo-content">
+
+	<div class="demo-mobile">
+		<div class="am-dialog image show">
+			<div class="am-dialog-wrap">
+				<div class="am-dialog-header">
+					<h3>标题文字</h3>
+				</div>
+				<div class="am-dialog-img">
+					<img src="https://zos.alipayobjects.com/rmsportal/MerSoqDoDahCExq.png">
+				</div>
+				<div class="am-dialog-body">
+					<p class="am-dialog-brief">辅助说明文字辅助说明文字辅助说明文字辅助说明文字</p>
+				</div>
+				<div class="am-dialog-footer">
+					<a class="am-button blue">行动按钮</a>
+				</div>
+				<a class="am-dialog-close"></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="demo-type-title">文字＋插图 对话框</div>
+
+<div class="demo-content">
+	<div class="demo-mobile">
+		<div class="am-dialog image show">
+			<div class="am-dialog-wrap">
+				<div class="am-dialog-img">
+					<img src="https://zos.alipayobjects.com/rmsportal/MerSoqDoDahCExq.png">
+				</div>
+				<div class="am-dialog-header">
+					<h3>标题文字</h3>
+				</div>
+				<div class="am-dialog-body">
+					<p class="am-dialog-brief">辅助说明文字辅助说明文字辅助说明文字辅助说明文字</p>
+				</div>
+				<div class="am-dialog-footer">
+					<a type="button" class="am-button blue">行动按钮</a>
+				</div>
+				<a class="am-dialog-close"></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="demo-type-title">文字＋插图 对话框</div>
+
+<div class="demo-content">
+	<div class="demo-mobile">
+		<div class="am-dialog image show">
+			<div class="am-dialog-wrap">
+				<div class="am-dialog-img">
+					<img src="https://zos.alipayobjects.com/rmsportal/MerSoqDoDahCExq.png">
+				</div>
+				<div class="am-dialog-header">
+					<h3>标题文字</h3>
+				</div>
+				<div class="am-dialog-body">
+					<p class="am-dialog-brief">辅助说明文字辅助说明文字辅助说明文字辅助说明文字</p>
+					<a class="am-dialog-outlink">查看《协议》</a>
+				</div>
+				<div class="am-dialog-footer">
+					<a type="button" class="am-button blue">行动按钮</a>
+				</div>
+				<a class="am-dialog-close"></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="demo-type-title">纯文字 对话框</div>
+
+<div class="demo-content">
+	<div class="demo-mobile">
+		<div class="am-dialog show">
+			<div class="am-dialog-wrap">
+				<div class="am-dialog-header">
+					<h3>标题文字</h3>
+				</div>
+				<div class="am-dialog-body">
+					<p class="am-dialog-brief">辅助说明文字辅助说明文字辅助说明文字辅助说明文字</p>
+				</div>
+				<div class="am-dialog-footer">
+					<a class="am-dialog-button">取消</a>
+					<a class="am-dialog-button">确定</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="demo-type-title">只有内容 对话框</div>
+
+<div class="demo-content">
+	<div class="demo-mobile">
+		<div class="am-dialog show">
+			<div class="am-dialog-wrap">
+				<div class="am-dialog-body">
+					<p class="am-dialog-brief">辅助说明文字辅助说明文字辅助说明文字辅助说明文字</p>
+				</div>
+				<div class="am-dialog-footer">
+					<a class="am-dialog-button">取消</a>
+					<a class="am-dialog-button">确定</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="demo-type-title">只有标题 对话框</div>
+
+<div class="demo-content">
+	<div class="demo-mobile">
+		<div class="am-dialog show">
+			<div class="am-dialog-wrap">
+				<div class="am-dialog-header">
+					<h3>标题文字</h3>
+				</div>
+				<div class="am-dialog-footer">
+					<button type="button" class="am-dialog-button">取消</button>
+					<button type="button" class="am-dialog-button">确定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="demo-type-title">按钮定制 对话框</div>
+
+<div class="demo-content">
+	<div class="demo-mobile">
+		<div class="am-dialog show">
+			<div class="am-dialog-wrap">
+				<div class="am-dialog-header">
+					<h3>标题文字</h3>
+				</div>
+				<div class="am-dialog-body">
+					<p class="am-dialog-brief">辅助说明文字辅助说明文字辅助说明文字辅助说明文字</p>
+				</div>
+				<div class="am-dialog-footer">
+					<button type="button" class="am-dialog-button">确定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="demo-type-title">按钮不可用 对话框</div>
+
+<div class="demo-content">
+	<div class="demo-mobile">
+		<div class="am-dialog show">
+			<div class="am-dialog-wrap">
+				<div class="am-dialog-header">
+					<h3>标题文字</h3>
+				</div>
+				<div class="am-dialog-body">
+					<p class="am-dialog-brief">辅助说明文字辅助说明文字辅助说明文字辅助说明文字</p>
+				</div>
+				<div class="am-dialog-footer">
+					<button type="button" class="am-dialog-button">取消</button>
+					<button type="button" class="am-dialog-button" disabled="disabled">确定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="demo-type-title">带输入框 对话框</div>
+
+<div class="demo-content">
+	<div class="demo-mobile">
+		<div class="am-dialog-mask hide"></div>
+		<div class="am-dialog show">
+			<div class="am-dialog-wrap">
+				<div class="am-dialog-header">
+					<h3>标题文字</h3>
+				</div>
+				<div class="am-dialog-body">
+					<p class="am-dialog-brief">说明内容说明内容</p>
+					<input class="am-text-former" type="text" maxlength="6" size="6" value="" placeholder="暗提示暗提示">
+				</div>
+				<div class="am-dialog-footer">
+					<button type="button" class="am-dialog-button">取消</button>
+					<button type="button" class="am-dialog-button" disabled="disabled">确定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="demo-type-title">选项卡按钮 对话框</div>
+
+<div class="demo-content">
+	<div class="demo-mobile">
+		<div class="am-dialog-mask hide"></div>
+		<div class="am-dialog show">
+			<div class="am-dialog-wrap">
+				<div class="am-dialog-header">
+					<h3>标题文字</h3>
+				</div>
+				<div class="am-dialog-body">
+					<p class="am-dialog-brief">辅助说明文字辅助说明文字辅助说明文字辅助说明文字</p>
+				</div>
+				<div class="am-dialog-footer selection">
+					<a class="am-dialog-button">选项1</a>
+					<a class="am-dialog-button">选项2</a>
+					<a class="am-dialog-button">选项3</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</script>
+
+
+<script charset="utf-8" src="https://a.alipayobjects.com/amui/zepto/1.1.3/zepto.js"></script>
+<script src="https://a.alipayobjects.com/static/fastclick/1.0.6/fastclick.min.js"></script>
+<script src="https://as.alipayobjects.com/g/component/swiper/3.2.7/swiper.min.js"></script>
+
+<script>
+(function($){
+	var isInAlipay = (navigator.userAgent.indexOf("AlipayClient") > -1 || navigator.userAgent.indexOf("AliApp(AP") > -1);
+
+	Zepto(function($){
+
+		if ($('.swiper-container').length >0) {
+			$('.swiper-container').height(function () {
+				var offset = $(this).offset();
+				return $(window).height() - offset.top;
+			});
+			var swiper = new Swiper('.swiper-container', {
+				scrollbar: '.swiper-scrollbar',
+				direction: 'vertical',
+				slidesPerView: 'auto',
+				mousewheelControl: true,
+				freeMode: true
+			});
+		}
+
+		if (!isInAlipay || !!window.AlipayJSBridge) {
+			run();
+		} else {
+			document.addEventListener('AlipayJSBridgeReady', function() {
+				run();
+			}, false);
+		}
+	});
+
+	var run = function() {
+		if (isInAlipay) {
+			document.addEventListener('back', function (e) {
+				e.preventDefault();
+
+				if ($('.widget-list-panel').css('display') == 'block') {
+					AlipayJSBridge.call('popWindow');
+				} else {
+					hideWidget();
+				}
+			}, false);
+
+			// 绑定事件
+			$(document).on('click', '.widget-wrap', function(e) {
+				e.preventDefault();
+				var el = $(e.currentTarget);
+
+				showWidget(el.attr('href'));
+			});
+
+		} else {
+			$(window).on('hashchange', function(e){
+				showWidget(location.hash);
+			});
+		}
+
+		showWidget(location.hash);
+
+		bindActive(['a', 'label.am-list-item']);
+		bindSearch();
+		bindClear();
+
+		FastClick.attach(document.body);
+	}
+
+	var showWidget = function(anchor) { console.log(anchor);
+
+		var wListPanel = $('.widget-list-panel'),
+				wDemoShowPanel = $('.widget-demo-show-panel');
+
+		if (!anchor){
+			hideWidget();
+			return;
+		}
+
+		anchor = anchor.substr(1, anchor.length);
+
+		var node = $('#tpl-' + anchor.toLocaleString());
+		if(node.length == 0) {
+			hideWidget();
+			return;
+		}
+
+		wDemoShowPanel.append(node.html()).show();
+		wListPanel.hide();
+
+		node = null;
+
+		$('body').scrollTop(0);
+	};
+
+	var hideWidget = function() {
+		var wListPanel = $('.widget-list-panel'),
+				wDemoShowPanel = $('.widget-demo-show-panel');
+
+		wDemoShowPanel.hide();
+		wListPanel.show();
+		wDemoShowPanel.html('');
+	};
+
+	var bindActive = function(els, option) {
+		option = option || {};
+		var endTime,
+				moving = false,
+				ac = option.activeClass || 'hover',
+				ec = option.exceptClass || '',
+				lockT = option.lockTime || 1000;
+
+		var isExcept = function (el) {
+			return (ec && (el.hasClass(ec) || el.parents('.' + ec).length > 0));
+		}
+
+		var startFun = function (e) {
+			var el = $(e.target),
+					btn = $(this);
+
+			if (!moving && !isExcept(el)) {
+				btn.addClass(ac);
+				endTime = setTimeout(function () {
+					btn.removeClass(ac);
+				}, lockT);
+			}
+		};
+
+		var movingFun = function (e) {
+			moving = true;
+			endFun(e);
+		};
+
+		var endFun = function (e) {
+			$(e.currentTarget).removeClass(ac);
+			clearTimeout(endTime);
+			moving = false;
+		};
+
+		els = typeof (els) == 'object' && els.length > 1 ? els : [els];
+		els.forEach(function (el) {
+			$(document).on('touchstart', el, startFun);
+			$(document).on('touchmove', el, movingFun);
+			$(document).on('touchend', el, endFun);
+			$(document).on('touchcancel', el, endFun);
+		});
+	}
+
+	var bindSearch = function() {
+		var btnHideTimer = null;
+		//这里是针对demo中实例的实现，提供js逻辑参考，具体应用时请结合业务场景使用
+		$(document).on('click', '.am-search-input', function(e) {
+			var searchwrap = $(this);
+			var searchBtn = searchwrap.parents('.am-search').find('.am-search-button');
+			var searchInput = searchwrap.find('input.am-search-value');
+
+			searchwrap.removeClass('am-search-start');
+			searchBtn.show();
+			searchInput.focus();
+		}).on('focus', 'input.am-search-value', function(e) {
+			var searchInput = $(this);
+			var searchwrap = $(this).parents('.am-search-input');
+			var searchBtn = searchwrap.parents('.am-search').find('.am-search-button');
+
+			//searchActive(searchInput,searchBtn);
+			searchwrap.removeClass('search-start');
+			searchBtn.show();
+		}).on('blur', 'input.am-search-value', function(e) {
+			var searchwrap = $(this).parents('.am-search-input');
+			var searchBtn = searchwrap.parents('.am-search').find('.am-search-button');
+
+			if(this.value ===''){
+				searchwrap.addClass('search-start');
+			}
+			btnHideTimer=setTimeout(function(){
+				searchBtn.hide();
+			},40);
+		}).on('input', 'input.am-search-value', function(e) {
+			var searchInput = $(this);
+			var searchwrap = searchInput.parents('.am-search-input');
+			var searchBtn = searchwrap.parents('.am-search').find('.am-search-button');
+
+			searchBtn.show();
+			//searchActive(searchInput,searchBtn);
+		}).on('click', '.am-search .am-icon-clear', function(e) {
+			clearTimeout(btnHideTimer);
+		}).on('click', '.am-search-btn', function(e) {
+			var searchBtn = $(e.currentTarget);
+			var searchwrap = searchBtn.parents('.am-search').find('.am-search-input');
+			var searchInput = searchwrap.find('input.am-search-value');
+
+			if(searchInput.val() == ''){
+				searchwrap.removeClass('search-start');
+			}
+			searchBtn.hide();
+		});
+
+	}
+
+	var bindClear = function() {
+		//这里是针对demo中实例的实现，提供js逻辑参考，具体应用时请结合业务场景使用
+		$(document).on('click', '.am-icon-clear', function(e) {
+			var trigger = $(e.currentTarget);
+			var input = trigger.parents('.am-input-autoclear').find('input');
+
+			if ( !input.type ||
+					input.type == 'text' ||
+					input.type == 'password' ||
+					input.type == 'number' ||
+					input.type == 'tel' ||
+					input.type == 'email' ||
+					input.type == 'url' ||
+					input.type == 'search'
+			) {
+				input.get(0).value = '';
+				input.focus();
+			}
+
+			trigger.css('visibility', 'hidden');
+
+		}).on('focus', '.am-input-autoclear input', function(e) {
+			if (!this.type || this.type == 'text' ||
+					this.type == 'password' ||
+					this.type == 'number' ||
+					this.type == 'tel' ||
+					this.type == 'email' ||
+					this.type == 'url' ||
+					this.type == 'search'
+			) {
+				var clear = $(this).parents('.am-input-autoclear').find('.am-icon-clear');
+				clear.css('visibility', this.value.length > 0 ? 'visible' : 'hidden');
+			}
+
+
+		}).on('input', '.am-input-autoclear input', function(e) {
+			if (!this.type ||
+					this.type == 'text' ||
+					this.type == 'password' ||
+					this.type == 'number' ||
+					this.type == 'tel' ||
+					this.type == 'email' ||
+					this.type == 'url' ||
+					this.type == 'search'
+			) {
+				var clear = $(this).parents('.am-input-autoclear').find('.am-icon-clear');
+				clear.css('visibility', this.value.length > 0 ? 'visible' : 'hidden');
+			}
+
+		}).on('blur', '.am-input-autoclear input', function(e) {
+			var clearTrigger = $(this).parents('.am-input-autoclear').find('.am-icon-clear');
+			setTimeout(function(){
+				clearTrigger.css('visibility', 'hidden');
+			},20);
+		});
+
+	}
+})(Zepto);
+
+</script>
+
+</body>
+</html>
